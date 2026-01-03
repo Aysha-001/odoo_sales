@@ -1,0 +1,26 @@
+<odoo>
+    <record id="demo_wizard" model="ir.ui.view">
+        <field name="name">demo.wizard</field>
+        <field name="model">demo.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="task_ids_text" readonly="1"/>
+                </group>
+                <footer>
+                    <button name="action_confirm" string="Confirm" type="object" class="btn-primary"/>
+                    <button string="cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="demo_wizard_action" model="ir.actions.act_window">
+        <field name="name">Demo</field>
+        <field name="res_model">demo.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="model_sale_order_task"/>
+        <field name="binding_view_types">list</field>
+    </record>
+</odoo>

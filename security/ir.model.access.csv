@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sale_order_tags,sale.order.tags,model_sale_order_tag,base.group_user,1,1,1,1
+access_sale_order_task,sale.order.tasks,model_sale_order_task,base.group_user,1,1,1,1
+access_demo_wizard,access.demo.wizard,model_demo_wizard,base.group_user,1,1,1,1

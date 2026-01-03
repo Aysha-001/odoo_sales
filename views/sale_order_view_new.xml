@@ -1,0 +1,25 @@
+<odoo>
+    <record id="sale_order_form_inherit_new" model="ir.ui.view">
+    <field name="name">sale.order.form.inherit.new</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.view_order_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='payment_term_id']" position="after">
+            <field name="regional_manager_id"/>
+            <field name="customer_reference_id"/>
+            <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+        </xpath>
+        <xpath expr="//notebook" position="inside">
+            <page string="Follow up task" name="follow_up_task">
+                <field name="task_ids">
+                    <list editable="bottom">
+                        <field name="name"/>
+                        <field name="status"/>
+                    </list>
+                </field>
+            </page>
+        </xpath>
+    </field>
+    </record>
+
+</odoo>

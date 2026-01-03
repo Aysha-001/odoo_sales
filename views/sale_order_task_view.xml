@@ -1,0 +1,47 @@
+<odoo>
+    <record id="sale_order_task_view" model="ir.ui.view">
+        <field name="name">sale.task.new</field>
+        <field name="model">sale.order.task</field>
+        <field name="arch" type="xml">
+            <form string="Sale Order Task">
+
+                <sheet>
+                    <group>
+                        <field name="order_id"/>
+                        <field name="name"/>
+                        <field name="status"/>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="sale_order_task_action" model="ir.actions.act_window">
+        <field name="name">Sale Order Task</field>
+        <field name="res_model">sale.order.task</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="sale_order_task_report" model="ir.actions.report">
+        <field name="name">sale.order.task.report</field>
+        <field name="model">sale.order.task</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">new_sales.sale_task_template</field>
+        <field name="binding_model_id" ref="model_sale_order_task" />
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="sale_task_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="task">
+                <t t-call="web.internal_layout">
+                    <div class="page">
+                        <h2>Task: <span t-field="task.name"/></h2>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>
